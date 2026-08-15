@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Investment Landing Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    color:white;
+    background:
+        radial-gradient(circle at top left, rgba(0,255,153,0.12), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0,200,255,0.12), transparent 35%),
+        linear-gradient(135deg,#0b1720,#142b35,#203f4b);
+}
+
+.container{
+    width:100%;
+    max-width:600px;
+    padding:38px 32px 30px;
+    text-align:center;
+
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:22px;
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    animation:cardAppear 0.8s ease;
+}
+
+@keyframes cardAppear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.main-title{
+    font-size:34px;
+    margin-bottom:15px;
+    font-weight:800;
+    background:linear-gradient(90deg,#00ff99,#00e5ff,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 18px rgba(0,255,180,0.25);
+    line-height:1.2;
+}
+
+@media (max-width:480px){
+    .main-title{
+        font-size:28px;
+    }
+}
+h1{
+    font-size:34px;
+    line-height:1.2;
+    margin-bottom:14px;
+    font-weight:800;
+
+    background:linear-gradient(90deg,#ffffff,#b9ffe5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.intro{
+    color:#d9e3e7;
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:28px;
+}
+
+/* FEATURES */
+
+ul{
+    list-style:none;
+    text-align:left;
+    margin-bottom:28px;
+}
+
+ul li{
+    position:relative;
+    margin:12px 0;
+    padding:14px 15px 14px 48px;
+
+    font-size:16px;
+    line-height:1.4;
+    color:#f4f7f8;
+
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.09);
+    border-radius:12px;
+
+    transition:0.25s ease;
+}
+
+ul li::before{
+    content:"✓";
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:24px;
+    height:24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#00c853;
+    color:white;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+ul li:hover{
+    transform:translateX(4px);
+    background:rgba(255,255,255,0.10);
+}
+
+/* TELEGRAM BUTTON */
+
+.btn{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    width:100%;
+    padding:17px 22px;
+
+    text-decoration:none;
+    color:white;
+
+    background:linear-gradient(135deg,#00c853,#00a83b);
+
+    border:2px solid rgba(255,255,255,0.8);
+    border-radius:50px;
+
+    font-size:19px;
+    font-weight:800;
+
+    box-shadow:
+        0 10px 25px rgba(0,200,83,0.30);
+
+    overflow:hidden;
+
+    transition:transform 0.25s ease,
+               box-shadow 0.25s ease;
+
+    animation:buttonPulse 2.2s infinite;
+}
+
+.btn::after{
+    content:"";
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:60%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    animation:shine 3.5s infinite;
+}
+
+@keyframes shine{
+    0%{
+        left:-120%;
+    }
+
+    45%{
+        left:140%;
+    }
+
+    100%{
+        left:140%;
+    }
+}
+
+@keyframes buttonPulse{
+    0%,100%{
+        box-shadow:
+            0 10px 25px rgba(0,200,83,0.30);
+    }
+
+    50%{
+        box-shadow:
+            0 10px 35px rgba(0,200,83,0.55);
+    }
+}
+
+.btn:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+.btn:active{
+    transform:scale(0.97);
+}
+
+/* REDIRECT MESSAGE */
+
+.redirect-message{
+    margin:22px 0 5px;
+
+    color:#ffd54f;
+    font-size:15px;
+    font-weight:700;
+
+    line-height:1.5;
+
+    animation:redirectPulse 1.5s infinite;
+}
+
+@keyframes redirectPulse{
+    0%,100%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:0.55;
+    }
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:22px;
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,255,255,0.10);
+
+    color:#aebbc0;
+    font-size:13px;
+}
+
+.footer strong{
+    color:#ffffff;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    body{
+        padding:14px;
+        align-items:center;
+    }
+
+    .container{
+        padding:28px 18px 24px;
+        border-radius:18px;
+    }
+
+    h1{
+        font-size:27px;
+    }
+
+    .intro{
+        font-size:14px;
+        line-height:1.55;
+        margin-bottom:22px;
+    }
+
+    ul{
+        margin-bottom:23px;
+    }
+
+    ul li{
+        font-size:14px;
+        padding:12px 12px 12px 43px;
+        margin:10px 0;
+    }
+
+    ul li::before{
+        left:12px;
+        width:22px;
+        height:22px;
+    }
+
+    .btn{
+        font-size:17px;
+        padding:16px 15px;
+    }
+
+    .redirect-message{
+        font-size:14px;
+        margin-top:18px;
+    }
+
+    .footer{
+        font-size:12px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚀 <h1 class="main-title">📢 Get All The Latest Updates</h1></h1>
+
+    <p class="intro">
+        Join our channel to discover simple investment plans,
+        affordable opportunities, and regular updates to help
+        you explore smarter ways to manage your money.
+    </p>
+
+    <ul>
+
+        <li>
+            💰 24 Hours Customer Support
+        </li>
+
+        <li>
+            📅 Daily & Weekly Investment Options
+        </li>
+
+        <li>
+            🎯 Small Investment, Better Returns
+        </li>
+
+        <li>
+            💵 Fast And Secure Withdrawals
+        </li>
+
+        <li>
+            🚀 Grow Your Savings with Smart Investment Opportunities
+        </li>
+
+    </ul>
+
+
+    <!-- TELEGRAM BUTTON -->
+
+    <a
+        href="https://t.me/+SKQJXg-ipRYxODA1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn"
+    >
+        💬 Join Our Telegram Channel
+        <span>➜</span>
+    </a>
+
+
+    <!-- REDIRECT MESSAGE -->
+
+    <p class="redirect-message">
+        ⏳ Redirecting to our Telegram channel in
+        <span id="count">13</span> seconds...
+    </p>
+
+
+    <div class="footer">
+        © 2026 <strong>Investment Community</strong> |
+        All Rights Reserved
+    </div>
+
+</div>
+
+<!-- auto redirect -->
+<script>
+
+let seconds = 13;
+
+const count = document.getElementById("count");
+
+const telegramURL =
+    "https://t.me/+SKQJXg-ipRYxODA1";
+
+
+const redirectTimer = setInterval(function(){
+
+    seconds--;
+
+    count.textContent = seconds;
+
+
+    if(seconds <= 0){
+
+        clearInterval(redirectTimer);
+
+        window.location.href = telegramURL;
+
+    }
+
+},1000);
+
+</script>
+
+
+</body>
+</html>
