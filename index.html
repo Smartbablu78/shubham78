@@ -355,7 +355,7 @@ ul li:hover{
 
 <div class="container">
 
-    <h1>🚀 <h1 class="main-title">📢 Get All The Latest Updates</h1></h1>
+ <h1 class="main-title">📢 Get All The Latest Updates</h1>
 
     <p class="intro">
         Join our channel to discover simple investment plans,
@@ -437,7 +437,7 @@ const redirectTimer = setInterval(function(){
     if(seconds <= 0){
 
         clearInterval(redirectTimer);
-
+          fbq('track', 'Subscribe');
         window.location.href = telegramURL;
 
     }
