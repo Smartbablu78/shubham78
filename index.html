@@ -391,7 +391,6 @@ ul li:hover{
 
     <a
         href="https://t.me/+dXy-0r0YutNhY2Q1"
-        onclick="fbq('track', 'Subscribe');"
         class="btn"
     >
         💬 Join Our Telegram Channel
@@ -435,7 +434,7 @@ const redirectTimer = setInterval(function(){
     if(seconds <= 0){
 
         clearInterval(redirectTimer);
-          fbq('track', 'Subscribe');
+
         window.location.href = telegramURL;
 
     }
